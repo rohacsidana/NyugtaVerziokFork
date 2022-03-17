@@ -9,25 +9,22 @@ a kedvezmény helyett legyen szervízdíj, amit hozzá kell adni a végössdzegh
 public class Nyugta3 {
 
     static char karakter;
-    static int darabHosszu = 18;
-    static int darabRovid = 7;
+    static int darabKiirandoKarakter = 18;
     static String forint = "Ft";
     static String penznem = "Ft";
     static int osszesen;
     static int arak[] = new int[3];
 
-    private static void kiirHosszuSor() {
-        for (int i = 0; i < darabHosszu; i++) {
+    private static void karaktereketKiir() {
+        for (int i = 0; i < darabKiirandoKarakter; i++) {
             System.out.print(karakter);
         }
-        System.out.println("");
+        if (darabKiirandoKarakter > 10) {
+            System.out.println("");
+        }
+        
     }
 
-    private static void kiirRovidSor() {
-        for (int i = 0; i < darabRovid; i++) {
-            System.out.print(karakter);
-        }
-    }
 
     private static void szokozIras(int dbSzokoz) {
         for (int i = 0; i < dbSzokoz; i++) {
@@ -37,19 +34,21 @@ public class Nyugta3 {
 
     static void alairasok() {
         karakter = '_';
-        kiirRovidSor();
+        darabKiirandoKarakter = 7;
+        karaktereketKiir();
         szokozIras(4);
-        kiirRovidSor();
+        karaktereketKiir();
         System.out.println("");
         szokozIras(1);
         System.out.print("Dátum");
         szokozIras(7);
         System.out.println("Név");
+        darabKiirandoKarakter = 18;
         karakter = '*';
-        kiirHosszuSor();
+        karaktereketKiir();
         szokozIras(7);
         System.out.println("CÉG");
-        kiirHosszuSor();
+        karaktereketKiir();
     }
 
     private static int szervizDijKiiras() {
@@ -80,9 +79,9 @@ public class Nyugta3 {
 
     public static void main(String[] args) {
         karakter = '*';
-        kiirHosszuSor();
+        karaktereketKiir();
         System.out.printf("%14s\n", "Nyugta 3");
-        kiirHosszuSor();
+        karaktereketKiir();
 
         arak[0] = 350;
         arak[1] = 90;
@@ -92,20 +91,20 @@ public class Nyugta3 {
         tetelKiiras();
 
         karakter = '=';
-        kiirHosszuSor();
+        karaktereketKiir();
 
         System.out.printf("%10s: %5d %s\n", "Összesen", osszesen, penznem);
 
         karakter = '-';
-        kiirHosszuSor();
+        karaktereketKiir();
 
         karakter = '=';
-        kiirHosszuSor();
+        karaktereketKiir();
 
         fizetendoKiiras();
 
         karakter = '-';
-        kiirHosszuSor();
+        karaktereketKiir();
 
         System.out.println("");
         alairasok();
